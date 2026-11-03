@@ -23,7 +23,7 @@ magnet_diameter_clearance = 0.6; // Total side-to-side clearance
 magnet_thickness_clearance = 0.35; // Extra fore-aft clearance
 magnet_pocket_width = 25;     // Outside width of each pocket, along long back wall
 magnet_rear_lip = 0.8;        // Retaining lip thickness facing cabinet (creates small magnet-to-metal gap)
-magnet_rear_lip_overlap = 0.9; // Amount of rear lip overlying each magnet edge
+magnet_rear_lip_overlap = 3.0; // Wide clip tabs overlap each edge by 3 mm
 magnet_shelf_thickness = 1.5; // Bottom stop above 45-degree supporting ramp
 
 /* [Fit checks] */
@@ -59,10 +59,14 @@ assert(slot_fraction >= 0 && slot_fraction < 0.8,
        "Slot fraction must be between 0 and 0.8");
 assert(magnet_offset > magnet_thickness + magnet_thickness_clearance + magnet_rear_lip + 0.8,
        "Magnet offset too small to fit magnet with usable front web");
-assert(magnet_side_width > magnet_rear_lip_overlap + 0.8,
-       "Magnet cassette side rails are too narrow");
-assert(magnet_pocket_width <= min(column_widths[0], column_widths[columns - 1]),
-       "Magnet cassette must fit the first and last back wall sections");
+assert(magnet_side_width >= 1.5, "Magnet cassette side rails are too narrow");
+assert(magnet_rear_lip_overlap > 0 &&
+       2 * magnet_rear_lip_overlap < magnet_open_width - 4,
+       "Rear clips must leave an open magnet face");
+assert(columns >= 3, "Two outer dividers are needed for magnet positions");
+assert(magnet_pocket_width <= min(column_widths[0] + column_widths[1],
+                                 column_widths[columns - 2] + column_widths[columns - 1]),
+       "Magnet cassette must span adjacent columns at the two outer dividers");
 assert(height - magnet_channel_bottom_z >= magnet_diameter + 0.5,
        "Slide is too short for a round magnet; reduce ramp/shelf or increase drop");
 assert(side_wall_thickness >= wall_thickness,
@@ -76,6 +80,7 @@ function cell_width(c) = column_widths[c];
 function cell_left(c) = side_wall_thickness + widths_before(c) + c * wall_thickness;
 function cell_front(r) = wall_thickness + r * (cell_depth + wall_thickness);
 function cell_center_x(c) = cell_left(c) + cell_width(c) / 2;
+function divider_center_x(c) = cell_left(c) - wall_thickness / 2;
 function cell_center_y(r) = cell_front(r) + cell_depth / 2;
 
 // An uninterrupted plate supports the tubes; all other structures grow upward.
@@ -146,8 +151,10 @@ module wall_slots() {
 }
 
 
-// Two slide-in magnet cassettes at the first and last sections of the long back
-// wall (Y = depth). Pockets are entirely OUTSIDE the tube compartments.
+// Two slide-in magnet cassettes centered on the FIRST INTERNAL DIVIDER
+// inward from each corner of the long back wall (Y = depth). This places
+// each pocket on a solid wall section BETWEEN neighboring top-open slots.
+// Pockets remain entirely OUTSIDE the tube compartments.
 // Magnet planes are parallel to the rear wall (XZ) and disks slide down from Z=height.
 // A 45-degree lower ramp prevents unsupported horizontal overhangs when printing
 // the whole organizer with its bottom face on the build plate.
@@ -172,9 +179,9 @@ module back_magnet_pocket(cx) {
     translate([x0, depth, z_shelf])
         cube([magnet_pocket_width, magnet_offset, magnet_shelf_thickness]);
 
-    // Thin wall immediately behind the original cabinet-facing wall.
-    // It bridges the existing 25%-width slot in the back wall at these two
-    // locations, retaining the original compartment dimensions.
+    // Front web joins the two adjacent back-wall segments. The 25-mm
+    // cassette may mask a narrow edge of their slots at upper elevations;
+    // tube compartment interior dimensions remain unchanged.
     translate([x0, depth, z_channel])
         cube([magnet_pocket_width, magnet_front_web, channel_h]);
 
@@ -183,7 +190,7 @@ module back_magnet_pocket(cx) {
         translate([x0 + dx, depth, z_channel])
             cube([magnet_side_width, magnet_offset, channel_h]);
 
-    // Narrow rear lips capture the disk so it cannot peel out backward.
+    // Wide (3 mm) rear clip lips capture the disk securely as it slides in.
     // No continuous plastic covers the center of the magnet facing the steel.
     for (dx = [magnet_side_width,
                magnet_pocket_width - magnet_side_width - magnet_rear_lip_overlap])
@@ -192,8 +199,9 @@ module back_magnet_pocket(cx) {
 }
 
 module back_magnet_pockets() {
-    for (c = [0, columns - 1])
-        back_magnet_pocket(cell_center_x(c));
+    // First interior divider from each end: between cols 0/1 and 3/4.
+    for (divider = [1, columns - 1])
+        back_magnet_pocket(divider_center_x(divider));
 }
 
 module tube_holder() {
@@ -224,5 +232,6 @@ if ($preview && show_tube_proxies)
 
 // Expected defaults: outside 155 x 85 x 65; 2 rows of 35/30/25/25/25 x 39.5 mm.
 // Side walls: 3.5 mm each; interior walls: 2 mm.
-// Two back-mounted 20 x 3 mm magnet slots project 5 mm past the original back wall.
+// Two back-mounted 20 x 3 mm magnet slots centered on outer interior dividers
+// (X=39.5 and 125.5 mm), projecting 5 mm past original back wall.
 // Envelope including magnets: 155 x 90 x 65 mm; shelf/back ramp reaches halfway down wall.

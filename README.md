@@ -12,7 +12,7 @@ Parametric OpenSCAD 3D-printable holder for medicine and ointment tubes in a cab
 
 Empty directories are tracked with `.gitkeep` placeholders.
 
-## Version 3 geometry (155 mm, 5 columns and back-wall magnet slides)
+## Version 4 geometry (155 mm, 5 columns and offset magnet pockets)
 
 | Property | Value |
 | --- | ---: |
@@ -28,18 +28,18 @@ Empty directories are tracked with `.gitkeep` placeholders.
 
 There are 10 compartments. The additional 3 mm outside the specified clear column widths and standard 2 mm walls is distributed equally to the left and right side walls (each 3.5 mm). The 25% slots are retained. Slots continue to the base's top surface, with the base itself completely intact.
 
-## Back-wall magnet holders (V3)
+## Back-wall magnet holders (V4)
 
-Two top-loading holders are centered on the **first and last sections of the long back wall** (the rear wall at Y=85 mm). Their centerlines are 21 mm and 139 mm from the left edge. Tube compartments retain their V2 clear dimensions.
+Two top-loading holders are centered on the **first internal divider from each end of the long back wall** (Y=85 mm), aligned with the solid segments marked in the V4 design review. Their centerlines are **39.5 mm and 125.5 mm** from the left edge, straddling the dividers between columns 1/2 and 4/5 (human numbering). Tube compartments retain their V2 clear dimensions. Each 25 mm cassette slightly masks the edges of nearby back-wall slots above its shelf; all other slots are unchanged.
 
 - Nominal magnets: **20 mm diameter × 3 mm thick** circular discs, oriented flat against the cabinet's steel wall (the magnet's axis points front-to-back).
 - Clear sliding channels: **20.6 mm across × 3.35 mm front-to-back**. The channels are open at the top; the pocket frames are 25 mm wide.
 - Offset: the holders extend **5 mm outward** from the original rear face, increasing the maximum overall depth from 85 mm to **90 mm** at only those two points.
 - Vertical reach: the outside of each holder extends from Z=65 mm down to Z=37.5 mm (halfway down the 55 mm exposed wall), with a 45-degree lower supporting ramp. The slide's bottom shelf sits at Z=44 mm, so a 20 mm magnet rests with its upper edge at Z=64 mm.
-- Rear capture lips: thin 0.8 mm retaining features on the sides keep magnets from popping out backward, but leave the center of the magnetic face exposed. They create approximately **0.8 mm setback** between the maximum magnet rear surface and the cabinet steel; the steel contacts the holder first.
-- The new front webs partially cover the existing top-open slots in these **two** back-wall sections. Other slots and all compartment interior dimensions remain unchanged.
+- Rear capture lips: 0.8 mm thick features now overlap each magnet by **3 mm per side** (V4, formerly 0.9 mm). The central **14.6 mm wide window** remains open toward the metal cabinet wall. The design still has approximately **0.8 mm plastic-to-metal setback** at the retaining lips, which will need physical validation.
+- The relocated pocket fronts overlap only the edges of neighboring back-wall slots at upper elevations, while keeping the overall ten-compartment internal layout unchanged.
 
-**Printing/fit checks:** The CAD render is manifold and a nominal 20 × 3 mm magnet CAD probe fits without interference. Physical magnet tolerances, sliding friction, attraction through the 0.8 mm gap, curved cabinet clearance, and slicer treatment of the 0.8–0.9 mm retention features have not yet been tested. Slice and inspect the pockets carefully before printing; print a short local test section first if fit is uncertain. All elements form one piece.
+**Printing/fit checks:** V4 OpenSCAD rendered as one watertight solid (155 × 90 × 65 mm); a nominal 20 × 3 mm disk CAD interference test was empty for both channels. Physical magnet tolerances, sliding friction, attraction through the 0.8 mm gap, curved cabinet clearance, and slicer treatment of the 0.8–0.9 mm retention features have not yet been tested. Slice and inspect the pockets carefully before printing; print a short local test section first if fit is uncertain. All elements form one piece.
 
 **Height interpretation:** Height 65 mm is the *total external height*, including the 10 mm base. If 65 mm of wall above the base is desired, change the height parameter to 75.
 
