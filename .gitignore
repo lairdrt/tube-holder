@@ -1,11 +1,13 @@
-# Local exports / slicer artifacts
+# Auto-generated printer/slicer outputs (keep source SCAD tracked)
 *.stl
 *.3mf
 *.gcode
 *.gcode.3mf
-*.png
-*.jpg
-*.jpeg
-*.webp
+
+# OS/editor noise
 .DS_Store
 Thumbs.db
+*~
+*.swp
+
+# Intentionally allow photo and publication assets to be committed.

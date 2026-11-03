@@ -2,6 +2,16 @@
 
 Parametric OpenSCAD 3D-printable holder for medicine and ointment tubes in a cabinet.
 
+## Project layout
+
+- `src/` — editable, parametric OpenSCAD source (`tube-holder.scad`)
+- `exports/` — generated STL / 3MF files for local slicing (not committed by default)
+- `photos/` — photos of printed prototypes and the finished part
+- `publication/` — descriptions and assets for any eventual publication
+- `reference/` — source measurements, sketches, and design references
+
+Empty directories are tracked with `.gitkeep` placeholders.
+
 ## Version 1 geometry
 
 | Property | Value |
@@ -21,7 +31,7 @@ Slots continue to the base's top surface, with the base itself completely intact
 
 ## Editing and printing
 
-1. Open tube-holder.scad in OpenSCAD.
+1. Open src/tube-holder.scad in OpenSCAD.
 2. Press **F5** to preview; change dimensions at the top of the file or in the Customizer.
 3. For a visual fit check, set show_tube_proxies to true; these translucent reference cylinders appear **only in F5 preview**, never in exported geometry.
 4. Press **F6** to render, then export as STL. Open it in Bambu Studio.
@@ -41,4 +51,4 @@ If the local directory already contains a Git clone, use git pull --ff-only inst
 
 ## Source and license
 
-OpenSCAD source is in tube-holder.scad. The repository's existing GPL-3.0 license applies.
+OpenSCAD source is in src/tube-holder.scad. The repository's existing GPL-3.0 license applies.
