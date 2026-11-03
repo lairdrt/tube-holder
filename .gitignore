@@ -1,0 +1,11 @@
+# Local exports / slicer artifacts
+*.stl
+*.3mf
+*.gcode
+*.gcode.3mf
+*.png
+*.jpg
+*.jpeg
+*.webp
+.DS_Store
+Thumbs.db
