@@ -1,22 +1,23 @@
-// Tube Holder: 2 x 4 medicine/ointment tube organizer
+// Tube Holder: 2 x 5 medicine/ointment tube organizer
 // Units: millimeters. Designed for FDM printing flat on its base.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 /* [Overall dimensions] */
-width = 150;             // X: left to right
+width = 155;             // X: left to right
 depth = 85;             // Y: front to back
 height = 65;             // Total external height, INCLUDING base
 base_thickness = 10;     // Solid, unperforated base geometry
 
 /* [Compartments and walls] */
-columns = 4;
+column_widths = [35, 30, 25, 25, 25]; // Clear inside widths, left to right
 rows = 2;
-wall_thickness = 2;     // Same thickness for perimeter and internal walls
+wall_thickness = 2;     // Internal divider and front/back wall thickness
 slot_fraction = 0.25;   // Fraction of each cell-facing wall span omitted
 
 /* [Fit checks] */
-maximum_tube_diameter = 33;
-minimum_fit_clearance = 1.5;  // Required in both X and Y
+maximum_tube_diameter = 33; // Fits in 35-mm columns only
+minimum_tube_diameter = 23; // Fits in 25-mm columns
+minimum_fit_clearance = 1.5;  // Minimum clearance across a suitable cell
 
 /* [Preview only] */
 show_tube_proxies = false;   // Ghost reference tubes in OpenSCAD preview; never exported
@@ -24,7 +25,11 @@ show_tube_proxies = false;   // Ghost reference tubes in OpenSCAD preview; never
 /* [Hidden] */
 $fn = 48;
 _eps = 0.02;
-cell_width = (width - (columns + 1) * wall_thickness) / columns;
+function widths_sum(i = 0) = i >= len(column_widths) ? 0 : column_widths[i] + widths_sum(i + 1);
+function widths_before(c, i = 0) = i >= c ? 0 : column_widths[i] + widths_before(c, i + 1);
+columns = len(column_widths);
+// Distribute the extra 3 mm to the two side walls, keeping cell sizes exact.
+side_wall_thickness = (width - widths_sum() - (columns - 1) * wall_thickness) / 2;
 cell_depth = (depth - (rows + 1) * wall_thickness) / rows;
 wall_height = height - base_thickness;
 
@@ -33,13 +38,17 @@ assert(wall_thickness > 0 && base_thickness > 0 && wall_height > 0,
        "All thicknesses and exposed wall height must be positive");
 assert(slot_fraction >= 0 && slot_fraction < 0.8,
        "Slot fraction must be between 0 and 0.8");
-assert(cell_width >= maximum_tube_diameter + minimum_fit_clearance &&
+assert(side_wall_thickness >= wall_thickness,
+       "Overall width too small for these cells and walls");
+assert(min(column_widths) >= minimum_tube_diameter + minimum_fit_clearance &&
+       max(column_widths) >= maximum_tube_diameter + minimum_fit_clearance &&
        cell_depth >= maximum_tube_diameter + minimum_fit_clearance,
-       "Compartments too small for specified maximum tube diameter and clearance");
+       "Compartments too small for intended tube diameters and clearance");
 
-function cell_left(c) = wall_thickness + c * (cell_width + wall_thickness);
+function cell_width(c) = column_widths[c];
+function cell_left(c) = side_wall_thickness + widths_before(c) + c * wall_thickness;
 function cell_front(r) = wall_thickness + r * (cell_depth + wall_thickness);
-function cell_center_x(c) = cell_left(c) + cell_width / 2;
+function cell_center_x(c) = cell_left(c) + cell_width(c) / 2;
 function cell_center_y(r) = cell_front(r) + cell_depth / 2;
 
 // An uninterrupted plate supports the tubes; all other structures grow upward.
@@ -54,11 +63,11 @@ module wall_grid() {
     translate([0, depth - wall_thickness, base_thickness])
         cube([width, wall_thickness, wall_height]);
     translate([0, 0, base_thickness])
-        cube([wall_thickness, depth, wall_height]);
-    translate([width - wall_thickness, 0, base_thickness])
-        cube([wall_thickness, depth, wall_height]);
+        cube([side_wall_thickness, depth, wall_height]);
+    translate([width - side_wall_thickness, 0, base_thickness])
+        cube([side_wall_thickness, depth, wall_height]);
 
-    // Three dividers across the width, and one across the depth (with 4 x 2 defaults).
+    // Four dividers across the width and one across the depth (with 5 x 2 defaults).
     if (columns > 1)
         for (c = [1 : columns - 1])
             translate([cell_left(c) - wall_thickness, 0, base_thickness])
@@ -77,7 +86,7 @@ module wall_slots() {
     // Slots in front/back perimeter walls and every front/back divider.
     for (c = [0 : columns - 1]) {
         x_center = cell_center_x(c);
-        slot_width = cell_width * slot_fraction;
+        slot_width = cell_width(c) * slot_fraction;
 
         translate([x_center - slot_width / 2, -_eps, base_thickness])
             cube([slot_width, wall_thickness + 2*_eps, wall_height + _eps]);
@@ -97,9 +106,9 @@ module wall_slots() {
         slot_depth = cell_depth * slot_fraction;
 
         translate([-_eps, y_center-slot_depth/2, base_thickness])
-            cube([wall_thickness + 2*_eps, slot_depth, wall_height + _eps]);
-        translate([width-wall_thickness-_eps, y_center-slot_depth/2, base_thickness])
-            cube([wall_thickness + 2*_eps, slot_depth, wall_height + _eps]);
+            cube([side_wall_thickness + 2*_eps, slot_depth, wall_height + _eps]);
+        translate([width-side_wall_thickness-_eps, y_center-slot_depth/2, base_thickness])
+            cube([side_wall_thickness + 2*_eps, slot_depth, wall_height + _eps]);
 
         if (columns > 1)
             for (c = [1 : columns - 1])
@@ -122,11 +131,11 @@ module tube_holder() {
 // Non-printing translucent references for checking max/min tube fit in F5 preview.
 module reference_tubes() {
     for (r = [0 : rows - 1], c = [0 : columns - 1]) {
-        large = (r + c) % 2 == 0;
-        color(large ? [0.15, 0.55, 0.85, 0.3] : [0.9, 0.55, 0.18, 0.3])
+        // Show representative round tubes with 2 mm diameter clearance.
+        proxy_diameter = min(maximum_tube_diameter, cell_width(c) - 2);
+        color(c == 0 ? [0.15, 0.55, 0.85, 0.3] : [0.9, 0.55, 0.18, 0.3])
             translate([cell_center_x(c), cell_center_y(r), base_thickness])
-                cylinder(h = large ? 140 : 105,
-                         d = large ? maximum_tube_diameter : 23);
+                cylinder(h = r == 0 ? 140 : 105, d = proxy_diameter);
     }
 }
 
@@ -134,4 +143,5 @@ tube_holder();
 if ($preview && show_tube_proxies)
     reference_tubes();
 
-// Expected defaults: outside 150 x 85 x 65; cell interior 35 x 39.5 mm.
+// Expected defaults: outside 155 x 85 x 65; 2 rows of 35/30/25/25/25 x 39.5 mm.
+// Side walls: 3.5 mm each; interior walls: 2 mm.

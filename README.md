@@ -12,20 +12,20 @@ Parametric OpenSCAD 3D-printable holder for medicine and ointment tubes in a cab
 
 Empty directories are tracked with `.gitkeep` placeholders.
 
-## Version 1 geometry
+## Version 2 geometry (155 mm, 5 columns)
 
 | Property | Value |
 | --- | ---: |
-| Outside dimensions | 150 mm wide × 85 mm deep × 65 mm tall |
-| Compartments | 4 columns × 2 rows (8 tubes) |
-| Clear interior of each compartment | 35 mm wide × 39.5 mm deep |
-| Supported tube cross-section | Up to 33 mm across, with 2 mm width clearance |
+| Outside dimensions | 155 mm wide × 85 mm deep × 65 mm tall |
+| Compartments | 5 columns × 2 rows (10 tubes) |
+| Clear interior of each compartment | 35 / 30 / 25 / 25 / 25 mm wide (left to right), each 39.5 mm deep |
+| Supported tube cross-section | 33 mm in the 35 mm column; up to 28 mm in the 30 mm column; up to 23 mm in the 25 mm columns (2 mm total width clearance) |
 | Solid unperforated base | 10 mm tall |
 | Walls above base | 55 mm tall (65 mm total height) |
-| Wall thickness | 2 mm, perimeter and dividers |
+| Wall thickness | 2 mm dividers and front/back; 3.5 mm left/right outside walls |
 | Slots | One top-open vertical slot centered in each cell-facing wall span; 25% of that span omitted |
 
-Slots continue to the base's top surface, with the base itself completely intact. All elements form one piece.
+There are 10 compartments. The additional 3 mm outside the specified clear column widths and standard 2 mm walls is distributed equally to the left and right side walls (each 3.5 mm). The 25% slots are retained. Slots continue to the base's top surface, with the base itself completely intact. All elements form one piece.
 
 **Height interpretation:** Height 65 mm is the *total external height*, including the 10 mm base. If 65 mm of wall above the base is desired, change the height parameter to 75.
 
