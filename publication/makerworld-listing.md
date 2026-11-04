@@ -1,6 +1,10 @@
-# MakerWorld listing draft — Magnetic Medicine Tube Holder (V4)
+# MakerWorld publication record — Magnetic Medicine Tube Holder (V4)
 
-**Draft only — not published.** Real print photographs, the verified STL, and the Bambu Studio 3MF project are in GitHub. The successful print used **SUNLU PLA+ 2.0**. Review the cover photograph and publication-license settings before submitting.
+**Published November 4, 2026**, as confirmed by the project author.
+
+**MakerWorld listing and P1S print profile:** https://makerworld.com/en/models/3547067-magnetic-medicine-tube-organizer-10-slots#profileId-4057595
+
+The successful first print used **SUNLU PLA+ 2.0**. Photos, source CAD, validated STL, and saved Bambu Studio 3MF are preserved in this repository.
 
 ## Title
 
@@ -19,7 +23,7 @@ CAD reference views (supplemental, not photos of the print):
 - [`photos/tube-holder-overview.svg`](../photos/tube-holder-overview.svg)
 - [`photos/tube-holder-rear-magnets.svg`](../photos/tube-holder-rear-magnets.svg)
 
-**Cover choice:** Select the sharpest actual photograph that clearly shows the printed organizer and its function. Do not represent a CAD rendering as an actual print photograph. Image ordering and captions should be reviewed visually before posting.
+**Gallery guidance for future updates:** Prefer actual photographs of the printed organizer. The CAD illustrations are technical references, not photographs. The already-published gallery was chosen in MakerWorld.
 
 ## Short description
 
@@ -82,7 +86,7 @@ The successful printed part used **SUNLU PLA+ 2.0**, as confirmed by the designe
 
 Original design developed through iterative CAD and physical testing with ChatGPT assistance. Public source: https://github.com/lairdrt/tube-holder
 
-Source license: **GNU GPL v3.0**. Confirm MakerWorld upload settings and any selected publication license are compatible with the project's license.
+Repository source license: **GNU GPL v3.0**. MakerWorld model license: **Creative Commons Attribution–ShareAlike (CC BY-SA)**, selected by the project author during publication. The author has offered the original design under distinct licenses on the two platforms.
 
 ## Publication checklist
 
@@ -90,6 +94,6 @@ Source license: **GNU GPL v3.0**. Confirm MakerWorld upload settings and any sel
 - [x] Version-control the V4 STL and saved Bambu Studio 3MF project
 - [ ] Visually choose the best cover photograph, order the gallery, and confirm what each photograph shows
 - [x] Confirm successful filament (SUNLU PLA+ 2.0), 15% Grid infill, and Textured PEI plate
-- [ ] Upload and check the V4 3MF print profile in MakerWorld; include STL as appropriate
+- [x] Upload the V4 3MF print profile in MakerWorld (profile ID 4057595)
 - [ ] Include links to exact Radial Magnets part and GitHub repository
-- [ ] Confirm MakerWorld category and licensing before submission
+- [x] Confirm MakerWorld license as CC BY-SA and publish model (model ID 3547067)

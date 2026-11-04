@@ -2,6 +2,8 @@
 
 A compact, parametric **3D-printable organizer** that keeps ointment and medicine tubes upright inside a medicine cabinet. Ten compartments have graduated widths; two slide-in magnets attach the organizer to the cabinet's steel back wall.
 
+**Published on MakerWorld:** [Magnetic Medicine Tube Organizer — 10 Slots (V4)](https://makerworld.com/en/models/3547067-magnetic-medicine-tube-organizer-10-slots#profileId-4057595). Includes the tested Bambu Lab P1S print profile.
+
 ## Finished V4 print
 
 <p>
@@ -12,7 +14,7 @@ A compact, parametric **3D-printable organizer** that keeps ointment and medicin
 
 Photographs of the actual printed organizer. CAD-derived images appear in the design section below.
 
-## Status — successful first print
+## Status — physically tested and published
 
 **V4 is physically tested and approved.** All intended tubes fit their compartments, the overall dimensions fit the medicine cabinet, and two **20 mm × 2 mm magnets slide perfectly into their pockets and hold the entire organizer firmly against the metal back wall**. No changes to the proven geometry are needed.
 
@@ -102,4 +104,6 @@ The design was created through an iterative collaboration with ChatGPT, using **
 
 ## License
 
-**GNU General Public License v3.0** — see [LICENSE](LICENSE).
+**GitHub source and files:** GNU General Public License v3.0 — see [LICENSE](LICENSE).
+
+**MakerWorld publication:** Creative Commons Attribution–ShareAlike (CC BY-SA), as selected by the project author on MakerWorld. The two sites offer the original design under distinct licenses.
