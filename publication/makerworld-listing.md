@@ -1,6 +1,6 @@
 # MakerWorld listing draft — Magnetic Medicine Tube Holder (V4)
 
-**Draft only — not published.** The physical-print photographs and STL/3MF files are now in GitHub. The specific filament used for the successful print remains unconfirmed; review publication-license settings before submitting.
+**Draft only — not published.** Real print photographs, the verified STL, and the Bambu Studio 3MF project are in GitHub. The successful print used **SUNLU PLA+ 2.0**. Review the cover photograph and publication-license settings before submitting.
 
 ## Title
 
@@ -55,14 +55,17 @@ Standard Bambu Studio settings were used **without manual changes**.
 | Setting | Value |
 |---|---|
 | Printer / nozzle | **Bambu Lab P1S / 0.4 mm standard-flow** |
+| Filament used | **SUNLU PLA+ 2.0** |
+| Build plate | **Textured PEI** |
 | Process preset shown | **0.20mm Standard @BBL X1C** |
 | Layer height / initial layer | **0.20 / 0.20 mm** |
 | Wall loops | **2** |
+| Sparse infill | **15% Grid** |
 | Top / bottom shell layers | **5 / 3** |
 | Supports | **Off** |
 | Orientation | **Flat base on build plate** |
 
-The project lists SUNLU PLA+ 2.0 and PLA Basic as filament presets, but the actual filament used cannot be confirmed from the screenshots. Infill was not shown, so neither is claimed as a validated setting.
+The successful printed part used **SUNLU PLA+ 2.0**, as confirmed by the designer. Although Bambu Studio also shows a PLA Basic filament preset, it was not the filament used. The screenshot confirms **15% Grid infill** and the **Textured PEI plate**.
 
 - Proven STL: [`exports/tube-holder-v4-print.stl`](../exports/tube-holder-v4-print.stl)
 - Saved Bambu Studio 3MF project: [`exports/tube-holder-v4-print.3mf`](../exports/tube-holder-v4-print.3mf)
@@ -86,7 +89,7 @@ Source license: **GNU GPL v3.0**. Confirm MakerWorld upload settings and any sel
 - [x] Add three actual print photographs to the GitHub repository
 - [x] Version-control the V4 STL and saved Bambu Studio 3MF project
 - [ ] Visually choose the best cover photograph, order the gallery, and confirm what each photograph shows
-- [ ] Confirm which filament was used for the successful print (process settings already documented)
+- [x] Confirm successful filament (SUNLU PLA+ 2.0), 15% Grid infill, and Textured PEI plate
 - [ ] Upload and check the V4 3MF print profile in MakerWorld; include STL as appropriate
 - [ ] Include links to exact Radial Magnets part and GitHub repository
 - [ ] Confirm MakerWorld category and licensing before submission

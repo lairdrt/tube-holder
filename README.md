@@ -68,14 +68,17 @@ The successful first print used the **standard Bambu Studio process settings wit
 |---|---|
 | Printer | Bambu Lab **P1S** |
 | Nozzle | **0.4 mm**, standard flow |
+| Filament used | **SUNLU PLA+ 2.0** |
+| Build plate | **Textured PEI** |
 | Process preset shown in Bambu Studio | **0.20mm Standard @BBL X1C** |
 | Layer height (including first layer) | **0.20 mm** |
 | Wall loops | **2** |
+| Sparse infill | **15% Grid** |
 | Top / bottom shell layers | **5 / 3** |
 | Supports | **Disabled** |
 | Orientation | **Flat on the continuous base**, tubes opening upward |
 
-The Bambu Studio project displays **SUNLU PLA+ 2.0** and **PLA Basic** filament presets. The screenshots do not establish which filament was used for the printed part; this is intentionally left unverified. The infill percentage was not visible, so it is not specified.
+The actual filament used for the successful print was confirmed as **SUNLU PLA+ 2.0**. Bambu Studio also lists PLA Basic as an available project filament, but that was **not** the material used for this part. The screenshots confirm 15% Grid infill and a Textured PEI build plate. No print-process settings were manually changed.
 
 After printing, slide the two specified magnets in from above and place the holder against a steel-backed cabinet wall. Arrange the tubes by size. The base is geometrically solid and unperforated; actual internal density follows the selected slicer infill.
 
