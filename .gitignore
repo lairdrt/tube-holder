@@ -1,5 +1,4 @@
-# Auto-generated printer/slicer outputs (keep source SCAD tracked)
-*.stl
+# Auto-generated printer/slicer outputs (STL exports are versioned)
 *.3mf
 *.gcode
 *.gcode.3mf

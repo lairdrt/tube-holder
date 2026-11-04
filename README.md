@@ -5,7 +5,7 @@ Parametric OpenSCAD 3D-printable holder for medicine and ointment tubes in a cab
 ## Project layout
 
 - `src/` — editable, parametric OpenSCAD source (`tube-holder.scad`)
-- `exports/` — generated STL / 3MF files for local slicing (not committed by default)
+- `exports/` — version-controlled printable STL exports; local 3MF/G-code exports remain ignored
 - `photos/` — photos of printed prototypes and the finished part
 - `publication/` — descriptions and assets for any eventual publication
 - `reference/` — source measurements, sketches, and design references
@@ -42,6 +42,10 @@ Two top-loading holders are centered on the **first internal divider from each e
 **Printing/fit checks:** V4 OpenSCAD rendered as one watertight solid (155 × 90 × 65 mm); a nominal 20 × 3 mm disk CAD interference test was empty for both channels. Physical magnet tolerances, sliding friction, attraction through the 0.8 mm gap, curved cabinet clearance, and slicer treatment of the 0.8–0.9 mm retention features have not yet been tested. Slice and inspect the pockets carefully before printing; print a short local test section first if fit is uncertain. All elements form one piece.
 
 **Height interpretation:** Height 65 mm is the *total external height*, including the 10 mm base. If 65 mm of wall above the base is desired, change the height parameter to 75.
+
+## Verified print export
+
+The approved V4 mesh is committed as [`exports/tube-holder-v4-print.stl`](exports/tube-holder-v4-print.stl). The STL was checked for a single watertight body and a maximum envelope of 155 × 90 × 65 mm. Generated STL files are intentionally **not** ignored by Git. When geometry changes, generate a new appropriately versioned STL and inspect it before committing.
 
 ## Editing and printing
 
