@@ -1,6 +1,6 @@
 # MakerWorld listing draft — Magnetic Medicine Tube Holder (V4)
 
-**Draft only — not published.** Add real-world photos and actual successful slicer settings before publishing.
+**Draft only — not published.** Add real-world photos and confirm which filament was actually printed before publishing.
 
 ## Title
 
@@ -33,12 +33,22 @@ https://radialmagnet.com/our-magnets/neodymium-magnet-disk-n35-20mm-x-2mma
 - Each compartment is **39.5 mm deep**
 - Base: **10 mm**; walls rise **55 mm** above the base
 
-### Print guidance
+### Print settings — successful first print
 
-- Printer used: **Bambu Lab P1S**
-- Orientation: **flat base on build plate**
-- Supports: **none needed for the intended orientation**
-- Filament, layer height, infill and slicer profile: **record successful settings prior to publication**
+Standard Bambu Studio settings were used **without manual changes**.
+
+| Setting | Value |
+|---|---|
+| Printer / nozzle | **Bambu Lab P1S / 0.4 mm standard-flow** |
+| Process preset shown | **0.20mm Standard @BBL X1C** |
+| Layer height / initial layer | **0.20 / 0.20 mm** |
+| Wall loops | **2** |
+| Top / bottom shell layers | **5 / 3** |
+| Supports | **Off** |
+| Orientation | **Flat base on build plate** |
+
+The project lists SUNLU PLA+ 2.0 and PLA Basic as filament presets, but the actual filament used cannot be confirmed from the screenshots. Infill was not shown, so neither is claimed as a validated setting.
+
 - Proven STL: [`exports/tube-holder-v4-print.stl`](../exports/tube-holder-v4-print.stl)
 - Parametric design: [`src/tube-holder.scad`](../src/tube-holder.scad)
 
@@ -59,7 +69,7 @@ Source license: **GNU GPL v3.0**. Confirm MakerWorld upload settings and any sel
 
 - [ ] Add photographs of actual V4 print (front, back, with tubes in cabinet)
 - [ ] Photograph a magnet inside one retaining clip
-- [ ] Confirm material and actual Bambu Studio settings from successful print
+- [ ] Confirm which filament was used for the successful print (process settings already documented)
 - [ ] Upload V4 STL and optionally a tested 3MF profile
 - [ ] Include link to exact Radial Magnets part and GitHub repository
 - [ ] Confirm MakerWorld category and licensing before submission

@@ -54,14 +54,24 @@ The pockets accept magnets from the top and retain them with two wide clips. The
 
 ## Printing and use
 
-- **Successful printer:** Bambu Lab P1S.
-- Print flat on the **continuous base**, with the compartments opening upward.
-- The geometry was designed to print without supports; inspect the pockets and retaining clips in Bambu Studio before slicing.
-- The **filament and exact slicer settings used for the successful first print have not been recorded** in this repository.
-- After printing, slide the two specified magnets in from above and place the holder against a steel-backed cabinet wall.
-- Arrange the tubes by size.
+The successful first print used the **standard Bambu Studio process settings without manual changes**.
 
-The base geometry is solid and unperforated; internal print density depends on your slicer's infill settings.
+### Verified print settings
+
+| Setting | First-print configuration |
+|---|---|
+| Printer | Bambu Lab **P1S** |
+| Nozzle | **0.4 mm**, standard flow |
+| Process preset shown in Bambu Studio | **0.20mm Standard @BBL X1C** |
+| Layer height (including first layer) | **0.20 mm** |
+| Wall loops | **2** |
+| Top / bottom shell layers | **5 / 3** |
+| Supports | **Disabled** |
+| Orientation | **Flat on the continuous base**, tubes opening upward |
+
+The Bambu Studio project displays **SUNLU PLA+ 2.0** and **PLA Basic** filament presets. The screenshots do not establish which filament was used for the printed part; this is intentionally left unverified. The infill percentage was not visible, so it is not specified.
+
+After printing, slide the two specified magnets in from above and place the holder against a steel-backed cabinet wall. Arrange the tubes by size. The base is geometrically solid and unperforated; actual internal density follows the selected slicer infill.
 
 ## Files and project structure
 
