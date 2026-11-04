@@ -2,7 +2,15 @@
 
 A compact, parametric **3D-printable organizer** that keeps ointment and medicine tubes upright inside a medicine cabinet. Ten compartments have graduated widths; two slide-in magnets attach the organizer to the cabinet's steel back wall.
 
-![CAD-derived angled overview of the V4 organizer](photos/tube-holder-overview.svg)
+## Finished V4 print
+
+<p>
+  <img src="photos/IMG_7631.jpg" alt="Finished V4 printed medicine tube organizer, photograph 1" width="345">
+  <img src="photos/IMG_7633.jpg" alt="Finished V4 printed medicine tube organizer, photograph 2" width="345">
+  <img src="photos/IMG_7635.jpg" alt="Finished V4 printed medicine tube organizer, photograph 3" width="345">
+</p>
+
+Photographs of the actual printed organizer. CAD-derived images appear in the design section below.
 
 ## Status — successful first print
 
@@ -10,11 +18,9 @@ A compact, parametric **3D-printable organizer** that keeps ointment and medicin
 
 The exact tested export is [`exports/tube-holder-v4-print.stl`](exports/tube-holder-v4-print.stl). The parametric source is [`src/tube-holder.scad`](src/tube-holder.scad).
 
-### Actual print photos
-
-Photos of the finished print and installed organizer will be added to `photos/`. These two illustrations are CAD-derived views, not photographs.
-
 ## Design and features
+
+![CAD-derived angled overview of the V4 organizer](photos/tube-holder-overview.svg)
 
 ![CAD-derived rear view showing the two magnet holders](photos/tube-holder-rear-magnets.svg)
 
@@ -77,11 +83,13 @@ After printing, slide the two specified magnets in from above and place the hold
 
 ```
 src/          Parametric OpenSCAD source
-exports/      Versioned STL for the successful print
-photos/       CAD renders; printed-part photos to be added
-publication/  Draft MakerWorld listing
+exports/      Verified V4 STL and saved Bambu Studio 3MF
+photos/       Finished print photographs and CAD-derived renders
+publication/  MakerWorld listing draft
 reference/    Measurements and design references
 ```
+
+The repository also contains the **Bambu Studio 3MF project** at [`exports/tube-holder-v4-print.3mf`](exports/tube-holder-v4-print.3mf). The printable STL and editable OpenSCAD source remain available separately.
 
 The OpenSCAD source is the design authority. For new revisions, regenerate and commit the corresponding print STL rather than overwriting the proven V4 export.
 

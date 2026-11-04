@@ -1,10 +1,25 @@
 # MakerWorld listing draft — Magnetic Medicine Tube Holder (V4)
 
-**Draft only — not published.** Add real-world photos and confirm which filament was actually printed before publishing.
+**Draft only — not published.** The physical-print photographs and STL/3MF files are now in GitHub. The specific filament used for the successful print remains unconfirmed; review publication-license settings before submitting.
 
 ## Title
 
 **Magnetic Medicine Tube Organizer — 10 Slots**
+
+## Photos and graphics for MakerWorld
+
+Actual printed-part photos (all available in the repo):
+
+- [`photos/IMG_7631.jpg`](../photos/IMG_7631.jpg)
+- [`photos/IMG_7633.jpg`](../photos/IMG_7633.jpg)
+- [`photos/IMG_7635.jpg`](../photos/IMG_7635.jpg)
+
+CAD reference views (supplemental, not photos of the print):
+
+- [`photos/tube-holder-overview.svg`](../photos/tube-holder-overview.svg)
+- [`photos/tube-holder-rear-magnets.svg`](../photos/tube-holder-rear-magnets.svg)
+
+**Cover choice:** Select the sharpest actual photograph that clearly shows the printed organizer and its function. Do not represent a CAD rendering as an actual print photograph. Image ordering and captions should be reviewed visually before posting.
 
 ## Short description
 
@@ -50,6 +65,7 @@ Standard Bambu Studio settings were used **without manual changes**.
 The project lists SUNLU PLA+ 2.0 and PLA Basic as filament presets, but the actual filament used cannot be confirmed from the screenshots. Infill was not shown, so neither is claimed as a validated setting.
 
 - Proven STL: [`exports/tube-holder-v4-print.stl`](../exports/tube-holder-v4-print.stl)
+- Saved Bambu Studio 3MF project: [`exports/tube-holder-v4-print.3mf`](../exports/tube-holder-v4-print.3mf)
 - Parametric design: [`src/tube-holder.scad`](../src/tube-holder.scad)
 
 ### Assembly
@@ -67,9 +83,10 @@ Source license: **GNU GPL v3.0**. Confirm MakerWorld upload settings and any sel
 
 ## Publication checklist
 
-- [ ] Add photographs of actual V4 print (front, back, with tubes in cabinet)
-- [ ] Photograph a magnet inside one retaining clip
+- [x] Add three actual print photographs to the GitHub repository
+- [x] Version-control the V4 STL and saved Bambu Studio 3MF project
+- [ ] Visually choose the best cover photograph, order the gallery, and confirm what each photograph shows
 - [ ] Confirm which filament was used for the successful print (process settings already documented)
-- [ ] Upload V4 STL and optionally a tested 3MF profile
-- [ ] Include link to exact Radial Magnets part and GitHub repository
+- [ ] Upload and check the V4 3MF print profile in MakerWorld; include STL as appropriate
+- [ ] Include links to exact Radial Magnets part and GitHub repository
 - [ ] Confirm MakerWorld category and licensing before submission
